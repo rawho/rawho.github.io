@@ -1,6 +1,11 @@
 import React from "react"
 import Layout from "../components/Layout/Layout"
 import { Link } from "gatsby"
+import EducationList from "../data/education.yml"
+import ExperienceList from "../data/experience.yml"
+const EduList = EducationList.reverse()
+const ExpList = ExperienceList.reverse()
+
 export default function About() {
   return (
     <Layout>
@@ -42,7 +47,7 @@ export default function About() {
                     </div>
                     <div className="info-item padd-15">
                       <p>
-                        website : <span>rahulmanoj.xyz</span>
+                        website : <span>https://rahult.in</span>
                       </p>
                     </div>
                     <div className="info-item padd-15">
@@ -91,28 +96,40 @@ export default function About() {
                     <div className="skill-item">
                       <h5>Python</h5>
                       <div className="progress">
-                        <div className="progress-in" style={{width: "75%"}}></div>
+                        <div
+                          className="progress-in"
+                          style={{ width: "75%" }}
+                        ></div>
                         <div className="skill-percent">75%</div>
                       </div>
                     </div>
                     <div className="skill-item">
                       <h5>Javascript</h5>
                       <div className="progress">
-                        <div className="progress-in" style={{width: "80%"}}></div>
+                        <div
+                          className="progress-in"
+                          style={{ width: "80%" }}
+                        ></div>
                         <div className="skill-percent">80%</div>
                       </div>
                     </div>
                     <div className="skill-item">
                       <h5>Django</h5>
                       <div className="progress">
-                        <div className="progress-in" style={{width: "55%"}}></div>
+                        <div
+                          className="progress-in"
+                          style={{ width: "55%" }}
+                        ></div>
                         <div className="skill-percent">55%</div>
                       </div>
                     </div>
                     <div className="skill-item">
                       <h5>NodeJS</h5>
                       <div className="progress">
-                        <div className="progress-in" style={{width: "75%"}}></div>
+                        <div
+                          className="progress-in"
+                          style={{ width: "75%" }}
+                        ></div>
                         <div className="skill-percent">75%</div>
                       </div>
                     </div>
@@ -125,20 +142,21 @@ export default function About() {
                   <div className="row">
                     <div className="timeline-box padd-15">
                       <div className="timeline shadow-dark">
-                        {/* {% for education in site.data.education reversed %}
-                                    <!-- Timeline Item  -->
-                                    <div className="timeline-item">
-                                        <div className="circle-dot"></div>
-                                        <h6 className="timeline-date">
-                                            <i className="fa fa-calendar"></i> {{ education.period }}
-                                        </h6>
-                                        <h4 className="timeline-title">{{education.title}}</h4>
-                                        <p className="timeline-text">
-                                        {{ education.description }}
-                                        </p>
-                                    </div>   
-                                    <!-- Timeline Item End  -->
-                                    {% endfor %} */}
+                        {EduList.map(education => (
+                          <div className="timeline-item">
+                            <div className="circle-dot"></div>
+                            <h6 className="timeline-date">
+                              <i className="fa fa-calendar"></i>{" "}
+                              {education.period}
+                            </h6>
+                            <h4 className="timeline-title">
+                              {education.title}
+                            </h4>
+                            <p className="timeline-text">
+                              {education.description}
+                            </p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -148,21 +166,25 @@ export default function About() {
                   <div className="row">
                     <div className="timeline-box padd-15">
                       <div className="timeline shadow-dark">
-                        {/* {% for experience in site.data.experience reversed %}
-                                     <!-- Timeline Item  -->
-                                     <div className="timeline-item">
-                                        <div className="circle-dot"></div>
-                                        <!-- <h6 className="timeline-date">
+                        {ExpList.map(experience => (
+                          <div className="timeline-item">
+                            <div className="circle-dot"></div>
+                            {/* <!-- <h6 className="timeline-date">
                                             <i className="fa fa-calendar"></i> 2021 - present
-                                        </h6> -->
-                                        <h4 className="timeline-title">{{ experience.title }}</h4>
-                                        <p className="timeline-text">{{ experience.description }}</p>
-                                        <p className="timeline-text">
-                                            <a target="_blank" href="{{ experience.link }}">{{ experience.shortlink }}</a>
-                                        </p>
-                                    </div>   
-                                    <!-- Timeline Item End  -->
-                                    {% endfor %} */}
+                                        </h6> --> */}
+                            <h4 className="timeline-title">
+                              {experience.title}
+                            </h4>
+                            <p className="timeline-text">
+                              {experience.description}
+                            </p>
+                            <p className="timeline-text">
+                              <a target="_blank" href={experience.link}>
+                                {experience.shortlink}
+                              </a>
+                            </p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>

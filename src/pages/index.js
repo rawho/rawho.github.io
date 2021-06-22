@@ -2,10 +2,11 @@ import React from "react"
 import Layout from "../components/Layout/Layout"
 import Typewriter from "typewriter-effect"
 import SEO from "../components/SEO/Seo"
+import Img from "gatsby-image"
+import { graphql } from "gatsby"
 
-
-export default function Home() {
-
+export default function Home({data}) {
+  
   return (
     <Layout>
     <SEO/>
@@ -13,7 +14,7 @@ export default function Home() {
         <div style={{ paddingBottom: "0" }} className="container">
           <div className="intro">
             <div className="intro-box">
-              <img src="/images/bg.jpg" alt="background" className="bg" />
+              {/* <Img fluid={data.file.childImageSharp.fluid} alt="background" className="bg" /> */}
               <h2>
                 Discover My Amazing <br /> Art Space!
               </h2>
@@ -41,13 +42,13 @@ export default function Home() {
                   />
                 </span>
               </h1>
-              <img
+              <Img
+                fluid={data.file.childImageSharp.fluid}
                 className="dp"
-                src="/images/pro-pic.png"
                 alt="rahulmanojcet"
               />
             </div>
-            <img className="phone" src="/images/pro.JPG" alt="rahulmanojcet" />
+            {/* <img className="phone" src="/images/pro.JPG" alt="rahulmanojcet" /> */}
             <div className="social-container">
               <ul className="social-icons">
                 <li>
@@ -79,3 +80,17 @@ export default function Home() {
     </Layout>
   )
 }
+
+
+export const query = graphql`
+query Banner {
+  file(relativePath: {eq: "dp.png"}) {
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+}
+
+`

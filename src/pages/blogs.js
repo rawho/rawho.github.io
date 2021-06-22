@@ -1,7 +1,10 @@
+import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout/Layout"
+import Img from "gatsby-image"
 
-export default function Blogs() {
+export default function Blogs({data}) {
+  const blogs = data.allMarkdownRemark.nodes
   return (
     <Layout>
       <section className="blog section active" id="blog">
@@ -12,27 +15,26 @@ export default function Blogs() {
             </div>
           </div>
           <div className="row">
-            {/* <!-- Blog Item  -->
-            {% for blog in site.blogs %}
-            {% if blog.display == 't' %}
-            <div className="blog-item padd-15">
+           
+            
+            {blogs.map(blog => (
+              blog.frontmatter.display === 't' ? <div className="blog-item padd-15">
                 <div className="blog-item-inner shadow-dark">
                     <div className="blog-img">
-                        <img src="{{ blog.img_path }}" alt="blog - {{blog.title}}">
+                        <Img fluid={blog.frontmatter.img_path.childImageSharp.fluid} alt={`blog - ${blog.frontmatter.title}`} />
                     </div>
                     <div className="blog-info">
-                        <h4 className="blog-title">{{ blog.title }}</h4>
+                        <h4 className="blog-title">{ blog.frontmatter.title }</h4>
                         <p className="blog-description">
-                            {{ blog.description }}
+                            { blog.frontmatter.description }
                         </p>
-                        <p className="blog-tags">Tags : <a href="#">{{ blog.tag1 }}</a>, <a href="#">{{ blog.tag2 }}</a></p>
-                        <a className="read-more" target="_blank" href="{{ blog.permalink }}">Read More <i className="fa fa-arrow-right"></i> </a>
+                        <p className="blog-tags">Tags : <a href="#">{ blog.frontmatter.tag1 }</a>, <a href="#">{ blog.frontmatter.tag2 }</a></p>
+                        <a className="read-more" target="_blank" href={ blog.frontmatter.permalink }>Read More <i className="fa fa-arrow-right"></i> </a>
                     </div>
                 </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-            <!-- Blog Item End --> */}
+            </div> : ""
+            ))}
+
           </div>
           <a href="/blogs">
             <button className="btn">View all blogs</button>
@@ -42,3 +44,33 @@ export default function Blogs() {
     </Layout>
   )
 }
+
+
+
+export const query = graphql`
+query BlogsPage {
+  allMarkdownRemark(filter: {frontmatter: {layout: {eq: "blogs"}}}) {
+    nodes {
+      frontmatter {
+        img_path {
+          id
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        title
+        permalink
+        description
+        meta_desc
+        tag1
+        tag2
+        display
+      }
+      id
+    }
+  }
+}
+
+`

@@ -1,7 +1,10 @@
+import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout/Layout"
+import Img from "gatsby-image"
 
-export default function Portfolio() {
+export default function Portfolio({data}) {
+  const projects = data.allMarkdownRemark.nodes
   return (
     <Layout>
       <section className="portfolio section active" id="portfolio">
@@ -31,42 +34,67 @@ export default function Portfolio() {
             </div>
           </div>
           <div className="row">
-            {/* {% for portfolio in site.portfolios%}
-            <!-- Portfolio Item  -->
-            <div className="portfolio-item padd-15" data-category="{{ portfolio.data_category }}">
+            {projects.map(project => (
+              <div key={project.id} className="portfolio-item padd-15" data-category={ project.frontmatter.data_category }>
                 <div className="portfolio-item-inner shadow-dark">
                     <div className="portfolio-img">
-                        <img src="{{ portfolio.img_path }}" alt="portfolio-{{portfolio.title}}">
+                        <Img fluid={project.frontmatter.img_path.childImageSharp.fluid} alt={`project-${project.frontmatter.title}`} />
                     </div>
                     <div className="portfolio-info">
-                        <h4>{{ portfolio.title }}</h4>
-                        <a href="{{ portfolio.github_link }}" target="_blank">
-                            <div className="icon" style="display: flex;">
+                        <h4>{ project.frontmatter.title }</h4>
+                        <a href={ project.frontmatter.github_link } target="_blank">
+                            <div className="icon" style={{display: "flex"}}>
                                 <i className="fa fa-github"></i>
                             </div>
                         </a>
-                        {% if portfolio.website_link %}
-                        <a href="{{ portfolio.website_link }}" target="_blank">
-                            <div className="icon" style="right: 90px;">
-                                <i className="fa fa-link" style="font-size: 20px;"></i>
+                        {project.frontmatter.website_link ?   <a href={ project.frontmatter.website_link } target="_blank">
+                            <div className="icon" style={{right: "90px"}}>
+                                <i className="fa fa-link" style={{fontSize: "20px"}}></i>
                             </div>
-                        </a>
-                        {% endif %}
-                        {% if portfolio.info_link %}
-                        <a href="{{ portfolio.info_link }}" target="_blank">
-                            <div className="icon" style="right: 130px;">
-                                <i className="fa fa-info-circle" style="font-size: 20px;"></i>
+                        </a> : ""}
+                       
+                        
+                        {project.frontmatter.info_link ?  <a href={ project.frontmatter.info_link } target="_blank">
+                            <div className="icon" style={{right: "130px"}}>
+                                <i className="fa fa-info-circle" style={{fontSize: "20px"}}></i>
                             </div>
-                        </a>
-                        {% endif %}
+                        </a> : ""}
+                       
                     </div>
                 </div>
             </div>
-            <!-- Portfolio Item End -->
-            {% endfor %} */}
+            ))}
           </div>
         </div>
       </section>
     </Layout>
   )
 }
+
+
+// export page query
+
+export const query = graphql`
+query ProjectsPage {
+  allMarkdownRemark(filter: {frontmatter: {layout: {eq: "projects"}}}) {
+    nodes {
+      frontmatter {
+        github_link
+        data_category
+        img_path {
+          id
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        title
+        website_link
+      }
+      id
+    }
+  }
+}
+
+`

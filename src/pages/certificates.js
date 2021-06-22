@@ -1,7 +1,11 @@
+import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout/Layout"
+import Img from "gatsby-image"
 
-export default function Certificates() {
+export default function Certificates({data}) {
+  console.log(data.allMarkdownRemark.nodes);
+  const certificates = data.allMarkdownRemark.nodes
   return (
     <Layout>
       <section className="certificate section active" id="certificates">
@@ -12,33 +16,51 @@ export default function Certificates() {
             </div>
           </div>
           <div className="row">
-            {/* {% for certificate in site.certificates%}
-                <!-- Portfolio Item  -->
-                
-                <div className="certificate-item padd-15">
-                    <a target="_blank" href="{{ certificate.pdf }}">
+                {certificates.map(certificate => (
+                  <div key={certificate.id} className="certificate-item padd-15">
+                    <a target="_blank" href="#">
                     <div className="certificate-item-inner shadow-dark">
                         
                         <div className="certificate-img">
-                            <img src="{{ certificate.img_path }}" alt="certificate - {{ certificate.title}}">
+                            <Img className="img" fluid={ certificate.frontmatter.img_path.childImageSharp.fluid } alt={`certificate - ${ certificate.frontmatter.title}`} />
                         </div>
                         
                         <div className="certificate-info">
-                            <h4>{{ certificate.title }}</h4>
-                            <!-- <a href="https://www.instagram.com" target="_blank">
-                                <div className="icon">
-                                <i className="fa fa-search"></i>
-                                </div>
-                            </a> -->
+                            <h4>{ certificate.frontmatter.title }</h4>
                         </div>
                     </div>
                 </a>            
                 </div>
-                <!-- Portfolio Item End -->
-                {% endfor %} */}
+                ))}
           </div>
         </div>
       </section>
     </Layout>
   )
 }
+
+
+export const query = graphql`
+query CertificatesPage {
+  allMarkdownRemark(filter: {frontmatter: {layout: {eq: "certificates"}}}) {
+    nodes {
+      frontmatter {
+        title
+        img_path {
+          id
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        
+        
+      }
+      id
+    }
+  }
+}
+
+`
+
