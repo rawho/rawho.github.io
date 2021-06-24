@@ -1,10 +1,15 @@
-import { graphql } from "gatsby"
-import React from "react"
+import { graphql, Link } from "gatsby"
+import React, { useState } from "react"
 import Layout from "../components/Layout/Layout"
 import Img from "gatsby-image"
 import SEO from "../components/SEO/Seo"
+
 export default function Blogs({data}) {
+
   const blogs = data.allMarkdownRemark.nodes
+
+
+
   return (
     <Layout>
     <SEO title="Blogs" description="Blogs written by Rahul T"/>
@@ -19,7 +24,7 @@ export default function Blogs({data}) {
            
             
             {blogs.map(blog => (
-              blog.frontmatter.display === 't' ? <div className="blog-item padd-15">
+              <div className="blog-item padd-15">
                 <div className="blog-item-inner shadow-dark">
                     <div className="blog-img">
                         <Img fluid={blog.frontmatter.img_path.childImageSharp.fluid} alt={`blog - ${blog.frontmatter.title}`} />
@@ -30,16 +35,15 @@ export default function Blogs({data}) {
                             { blog.frontmatter.description }
                         </p>
                         <p className="blog-tags">Tags : <a href="#">{ blog.frontmatter.tag1 }</a>, <a href="#">{ blog.frontmatter.tag2 }</a></p>
-                        <a className="read-more" target="_blank" href={ blog.frontmatter.slug }>Read More <i className="fa fa-arrow-right"></i> </a>
+                        <Link className="read-more" to={ blog.frontmatter.slug }>Read More <i className="fa fa-arrow-right"></i> </Link>
                     </div>
                 </div>
-            </div> : ""
+            </div>
             ))}
 
           </div>
-          <a href="/blogs">
-            <button className="btn">View all blogs</button>
-          </a>
+          
+            {/* <button className="btn">View all blogs</button> */}
         </div>
       </section>
     </Layout>
