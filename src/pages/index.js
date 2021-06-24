@@ -62,7 +62,7 @@ export default function Home({data}) {
                   </a>
                 </li>
                 <li>
-                  <a href="https://linkedin.com/in/rahulmanojcet">
+                  <a href="https://linkedin.com/in/rahulmanojt">
                     <i className="fa fa-linkedin"></i>
                   </a>
                 </li>
