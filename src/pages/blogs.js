@@ -2,11 +2,12 @@ import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout/Layout"
 import Img from "gatsby-image"
-
+import SEO from "../components/SEO/Seo"
 export default function Blogs({data}) {
   const blogs = data.allMarkdownRemark.nodes
   return (
     <Layout>
+    <SEO title="Blogs" description="Blogs written by Rahul T"/>
       <section className="blog section active" id="blog">
         <div className="container">
           <div className="row">
@@ -29,7 +30,7 @@ export default function Blogs({data}) {
                             { blog.frontmatter.description }
                         </p>
                         <p className="blog-tags">Tags : <a href="#">{ blog.frontmatter.tag1 }</a>, <a href="#">{ blog.frontmatter.tag2 }</a></p>
-                        <a className="read-more" target="_blank" href={ blog.frontmatter.permalink }>Read More <i className="fa fa-arrow-right"></i> </a>
+                        <a className="read-more" target="_blank" href={ blog.frontmatter.slug }>Read More <i className="fa fa-arrow-right"></i> </a>
                     </div>
                 </div>
             </div> : ""
@@ -61,7 +62,7 @@ query BlogsPage {
           }
         }
         title
-        permalink
+        slug
         description
         meta_desc
         tag1

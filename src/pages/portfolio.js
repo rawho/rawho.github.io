@@ -1,12 +1,38 @@
 import { graphql } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/Layout/Layout"
 import Img from "gatsby-image"
+import SEO from "../components/SEO/Seo"
 
 export default function Portfolio({data}) {
-  const projects = data.allMarkdownRemark.nodes
+  let projects = data.allMarkdownRemark.nodes
+
+  const [AllProjects, setAllProjects] = useState(projects)
+  
+  
+  const handleClick = (e) => {
+    
+    if(e.target.getAttribute("data-filter") === "all"){
+      setAllProjects(projects)
+      e.target.parentElement.querySelector('.active').classList.remove('active') 
+      e.target.classList.add('active')
+      return
+    }
+
+    let p = projects.filter(project => project.frontmatter.data_category === e.target.getAttribute("data-filter"))
+    setAllProjects(p)
+    e.target.parentElement.querySelector('.active').classList.remove('active') 
+    e.target.classList.add('active')
+
+    
+    
+  }
+
+
+
   return (
     <Layout>
+    <SEO title="Projects" description="All the amazing Projects done by Rahul T" />
       <section className="portfolio section active" id="portfolio">
         <div className="container">
           <div className="row">
@@ -16,25 +42,25 @@ export default function Portfolio({data}) {
           </div>
           <div className="row">
             <div className="portfolio-filter padd-15">
-              <button type="button" className="active" data-filter="all">
+              <button type="button" onClick={e => handleClick(e)} className="active" data-filter="all">
                 All
               </button>
-              <button type="button" data-filter="web-design">
+              <button type="button" onClick={e => handleClick(e)} data-filter="web-design">
                 Web Design
               </button>
-              <button type="button" data-filter="django">
+              <button type="button" onClick={e => handleClick(e)} data-filter="django">
                 Django
               </button>
-              <button type="button" data-filter="python">
+              <button type="button" onClick={e => handleClick(e)} data-filter="python">
                 Python
               </button>
-              <button type="button" data-filter="javascript">
+              <button type="button" onClick={e => handleClick(e)} data-filter="javascript">
                 Javascript
               </button>
             </div>
           </div>
           <div className="row">
-            {projects.map(project => (
+            {AllProjects.map(project => (
               <div key={project.id} className="portfolio-item padd-15" data-category={ project.frontmatter.data_category }>
                 <div className="portfolio-item-inner shadow-dark">
                     <div className="portfolio-img">

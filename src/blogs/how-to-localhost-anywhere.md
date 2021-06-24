@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/how-to-access-localhost-anywhere
+slug: how-to-access-localhost-anywhere
 title: How to access localhost from anywhere
 img_path: ../images/blogs/ngrok.png
 description: Do you want to share your localhost to anywhere in the world. Ngrok comes with a solution for this!

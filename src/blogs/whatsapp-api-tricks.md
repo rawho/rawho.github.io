@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/how-to-whatsapp-api
+slug: how-to-whatsapp-api
 title: Whatsapp API Tricks
 img_path: ../images/blogs/whatsapp-tricks.jpg
 description: WhatsApp's click to chat feature allows you to begin a chat with someone without having their phone number saved in your phone's address book.

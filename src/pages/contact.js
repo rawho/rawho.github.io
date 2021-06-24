@@ -1,9 +1,11 @@
 import React from "react"
 import Layout from "../components/Layout/Layout"
+import SEO from "../components/SEO/Seo"
 
 export default function Contact() {
   return (
     <Layout>
+    <SEO title="Contact Me" description="Contact Rahul T" />
       <section className="contact section active" id="contact">
         <div className="container">
           <div className="row">

@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/create-anything-you-like/
+slug: create-anything-you-like/
 title: Create anything you like
 img_path: ../images/blogs/feynman.png
 description: Here are a big list of links you can go through inorder to build any thing you think. !!

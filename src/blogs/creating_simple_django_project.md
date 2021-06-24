@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/creating-a-django-project-from-scratch
+slug: creating-a-django-project-from-scratch
 title: Create a django Project from scratch
 img_path: ../images/blogs/django.png
 description: We are going to create a complete django application from scratch it contains all scenarios

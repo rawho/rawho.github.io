@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/deploying-django-application-to-aws
+slug: deploying-django-application-to-aws
 title: Deploy Django application to AWS
 img_path: ../images/blogs/django-aws.jpeg
 description: Are you worried of deploying a django application, In this blog you can see how to deploy django app to aws

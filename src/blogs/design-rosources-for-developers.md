@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/design-resources-for-developers
+slug: design-resources-for-developers
 title: Design Resource For Developers
 img_path: ../images/blogs/design-resourse.png
 description: Here is a huge list of all the developer resources for productivity

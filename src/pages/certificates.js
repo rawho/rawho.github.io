@@ -2,12 +2,14 @@ import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout/Layout"
 import Img from "gatsby-image"
+import SEO from "../components/SEO/Seo"
 
 export default function Certificates({data}) {
   console.log(data.allMarkdownRemark.nodes);
   const certificates = data.allMarkdownRemark.nodes
   return (
     <Layout>
+      <SEO title="Certificates" description="Certificates received by Rahul T, a full stack Web Developer"/>
       <section className="certificate section active" id="certificates">
         <div className="container">
           <div className="row">

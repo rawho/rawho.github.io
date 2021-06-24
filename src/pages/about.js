@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/Layout/Layout"
 import { Link } from "gatsby"
+import SEO from "../components/SEO/Seo"
 import EducationList from "../data/education.yml"
 import ExperienceList from "../data/experience.yml"
 const EduList = EducationList.reverse()
@@ -9,6 +10,7 @@ const ExpList = ExperienceList.reverse()
 export default function About() {
   return (
     <Layout>
+    <SEO />
       <section className="about section active" id="about">
         <div className="container">
           <div className="row">

@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/deploying-django-application-to-heroku
+slug: deploying-django-application-to-heroku
 title: Deploy Django application to Heroku
 img_path: ../images/blogs/django-heroku.jpeg
 description: Are you worried of deploying a django application, In this blog you can see how to deploy django app to heroku

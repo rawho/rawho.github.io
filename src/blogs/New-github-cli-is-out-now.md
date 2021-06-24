@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/how-to-use-github-cli
+slug: how-to-use-github-cli
 title: How to use Github Newly released CLI
 img_path: ../images/blogs/GitHubCLI_SocialCard_VersionNumber_NoSubLine_v2.png
 meta_desc: how to use github cli ?? GitHub CLI. gh is GitHub on the command line. It brings pull requests, issues, and other GitHub concepts to the terminal next to where you are already working with git and your code. GitHub CLI brings GitHub to your terminal. It reduces context switching, helps you focus, and enables you to more easily script and create your own workflows.

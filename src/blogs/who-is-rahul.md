@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/who-is-rahul-t-rahulmanojcet/
+slug: who-is-rahul-t-rahulmanojcet/
 title: Who is Rahul T
 img_path: ../images/pro.JPG
 description: You may be thinking who is Rahul T ?? (rahulmanojcet), he is a Web Developer, he is a student at College of Engineering, Trivandrum.

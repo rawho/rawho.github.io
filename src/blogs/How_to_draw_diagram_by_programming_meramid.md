@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/how-to-draw-diagrams-by-coding-using-mermaid
+slug: how-to-draw-diagrams-by-coding-using-mermaid
 title: How to draw diagrams in our markdown using mermaid
 img_path: ../images/blogs/mermaid.png
 description: Are you tired of drawing diagrams? THen you are in right place. Here i will show you how to draw diagrams in our markdown file using mermaid

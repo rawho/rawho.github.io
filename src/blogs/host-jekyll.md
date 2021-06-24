@@ -1,6 +1,6 @@
 ---
 layout: blogs
-permalink: /blogs/host-jekyll/
+slug: host-jekyll/
 title: How to Host Jekyll
 img_path: ../images/blogs/jekyll.png
 description: Jekyll is a simple, blog-aware, static site generator. Firebase provides free hosting.
