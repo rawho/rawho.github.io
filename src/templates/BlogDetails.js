@@ -3,13 +3,15 @@ import React from "react"
 import Layout from "../components/Layout/Layout"
 import "../styles/markdown.css"
 import "../styles/blogDetails.module.css"
+import SEO from "../components/SEO/Seo"
 
 const BlogDetails = ({ data }) => {
   const { html } = data.markdownRemark
-  const { title, description } = data.markdownRemark.frontmatter
+  const { title, description, meta_desc } = data.markdownRemark.frontmatter
   return (
     <>
       <Layout>
+      <SEO title={title} description={meta_desc} />
       <section className="certificate section active" id="certificates">
         <div className="blogDetailsContainer">
           <header>
@@ -57,6 +59,7 @@ export const query = graphql`
       frontmatter {
         title
         description
+        meta_desc
       }
     }
   }
