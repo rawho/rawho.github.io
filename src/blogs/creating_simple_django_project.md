@@ -152,7 +152,7 @@ Now lets enter the mysql and create a new user
 
 ```
 sudo mysql
-CREATE USER 'rahul'@'localhost' BY '123456';
+CREATE USER 'rahul'@'localhost' IDENTIFIED BY '123456';
 GRANT ALL PRIVILEGES ON *.* TO 'rahul'@'localhost' WITH GRANT OPTION;
 exit
 ```
