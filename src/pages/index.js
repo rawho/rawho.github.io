@@ -45,7 +45,7 @@ export default function Home({data}) {
               <Img
                 fluid={data.file.childImageSharp.fluid}
                 className="dp"
-                alt="rahulmanojcet"
+                alt="rahult"
               />
             </div>
             {/* <img className="phone" src="/images/pro.JPG" alt="rahulmanojcet" /> */}
