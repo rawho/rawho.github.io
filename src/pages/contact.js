@@ -44,8 +44,7 @@ export default function Contact() {
             <form
               className="contact-form padd-15 pageclip-form"
               id="myform"
-              action="https://send.pageclip.co/5TvZPyQokJayO47kktQNho9k4Ecn4PlH"
-              name="google-sheet"
+              action="https://getform.io/f/3c41c1a4-4133-4886-8caa-dc37efb62e12"
               method="post"
             >
               <div className="row">
