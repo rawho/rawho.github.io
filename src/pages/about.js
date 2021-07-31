@@ -4,13 +4,15 @@ import { Link } from "gatsby"
 import SEO from "../components/SEO/Seo"
 import EducationList from "../data/education.yml"
 import ExperienceList from "../data/experience.yml"
+import AchievementList from "../data/achievement.yml"
 const EduList = EducationList.reverse()
 const ExpList = ExperienceList.reverse()
+const AchList = AchievementList.reverse()
 
 export default function About() {
   return (
     <Layout>
-    <SEO />
+      <SEO />
       <section className="about section active" id="about">
         <div className="container">
           <div className="row">
@@ -139,30 +141,8 @@ export default function About() {
                 </div>
               </div>
               <div className="row">
-                <div className="education padd-15">
-                  <h3 className="title">Education</h3>
-                  <div className="row">
-                    <div className="timeline-box padd-15">
-                      <div className="timeline shadow-dark">
-                        {EduList.map(education => (
-                          <div className="timeline-item">
-                            <div className="circle-dot"></div>
-                            <h6 className="timeline-date">
-                              <i className="fa fa-calendar"></i>{" "}
-                              {education.period}
-                            </h6>
-                            <h4 className="timeline-title">
-                              {education.title}
-                            </h4>
-                            <p className="timeline-text">
-                              {education.description}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div className="col">
+
                 <div className="experience padd-15">
                   <h3 className="title">Experience</h3>
                   <div className="row">
@@ -187,6 +167,62 @@ export default function About() {
                             </p>
                           </div>
                         ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div className="col">
+                  
+
+                  <div className="education padd-15">
+                    <h3 className="title">Achievements</h3>
+                    <div className="row">
+                      <div className="timeline-box padd-15">
+                        <div className="timeline shadow-dark">
+                          {AchList.map(achievement => (
+                            <div className="timeline-item">
+                              <div className="circle-dot"></div>
+                              <h4 className="timeline-title">
+                                {achievement.title}
+                              </h4>
+                              <p className="timeline-text">
+                                {achievement.description}
+                              </p>
+                              <p className="timeline-text">
+                              <a target="_blank" href={achievement.link}>
+                                know more
+                              </a>
+                            </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="education padd-15">
+                    <h3 className="title">Education</h3>
+                    <div className="row">
+                      <div className="timeline-box padd-15">
+                        <div className="timeline shadow-dark">
+                          {EduList.map(education => (
+                            <div className="timeline-item">
+                              <div className="circle-dot"></div>
+                              <h6 className="timeline-date">
+                                <i className="fa fa-calendar"></i>{" "}
+                                {education.period}
+                              </h6>
+                              <h4 className="timeline-title">
+                                {education.title}
+                              </h4>
+                              <p className="timeline-text">
+                                {education.description}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -146,6 +146,9 @@ input, textarea,select{
     margin-left: -15px;
     position: relative;
 }
+.col{
+    width: 50%;
+}
 .padd-15{
     padding-left: 15px;
     padding-right: 15px;
@@ -638,15 +641,15 @@ input, textarea,select{
     color: #302e4d;
 }
 .about .about-content .education{
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
     margin-top: 30px;
 }
 .about .about-content .experience{
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
     margin-top: 30px;
 }
 .about .about-content h3.title{
@@ -1400,6 +1403,7 @@ input, textarea,select{
 }
 @media (max-width: 767px){
     .contact .contact-form .col-6,
+    .col,
     .blog .blog-item,
     .certificate .certificate-item,
     .about .about-content .experience,
