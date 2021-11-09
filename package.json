@@ -24,6 +24,7 @@
     "gatsby-transformer-remark": "^4.4.1",
     "gatsby-transformer-sharp": "^3.7.1",
     "react": "^17.0.1",
+    "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "typewriter-effect": "^2.18.0"
