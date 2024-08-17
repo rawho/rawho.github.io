@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/Layout/Layout"
 import Typewriter from "typewriter-effect"
 import SEO from "../components/SEO/Seo"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 
 export default function Home({data}) {
@@ -42,8 +42,8 @@ export default function Home({data}) {
                   />
                 </span>
               </h1>
-              <Img
-                fluid={data.file.childImageSharp.fluid}
+              <GatsbyImage
+                image={data.file.childImageSharp.gatsbyImageData}
                 className="dp"
                 alt="rahult"
               />
@@ -86,9 +86,7 @@ export const query = graphql`
 query Banner {
   file(relativePath: {eq: "dp.png"}) {
     childImageSharp {
-      fluid {
-        ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(layout: CONSTRAINED)
     }
   }
 }

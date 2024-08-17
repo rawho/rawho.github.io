@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout/Layout"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import SEO from "../components/SEO/Seo"
 
 export default function Certificates({data}) {
@@ -24,7 +24,7 @@ export default function Certificates({data}) {
                     <div className="certificate-item-inner shadow-dark">
                         
                         <div className="certificate-img">
-                            <Img className="img" fluid={ certificate.frontmatter.img_path.childImageSharp.fluid } alt={`certificate - ${ certificate.frontmatter.title}`} />
+                            <GatsbyImage className="img" image={ certificate.frontmatter.img_path.childImageSharp.gatsbyImageData } alt={`certificate - ${ certificate.frontmatter.title}`} />
                         </div>
                         
                         <div className="certificate-info">
@@ -51,9 +51,7 @@ query CertificatesPage {
         img_path {
           id
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED)
           }
         }
         

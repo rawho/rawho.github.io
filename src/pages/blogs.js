@@ -1,7 +1,7 @@
 import { graphql, Link } from "gatsby"
 import React, { useState } from "react"
 import Layout from "../components/Layout/Layout"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import SEO from "../components/SEO/Seo"
 
 export default function Blogs({data}) {
@@ -27,7 +27,7 @@ export default function Blogs({data}) {
               <div className="blog-item padd-15">
                 <div className="blog-item-inner shadow-dark">
                     <div className="blog-img">
-                        <Img fluid={blog.frontmatter.img_path.childImageSharp.fluid} alt={`blog - ${blog.frontmatter.title}`} />
+                        <GatsbyImage image={blog.frontmatter.img_path.childImageSharp.gatsbyImageData} alt={`blog - ${blog.frontmatter.title}`} />
                     </div>
                     <div className="blog-info">
                         <h4 className="blog-title">{ blog.frontmatter.title }</h4>
@@ -60,9 +60,7 @@ query BlogsPage {
         img_path {
           id
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED)
           }
         }
         title

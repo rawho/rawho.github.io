@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 import React, { useState } from "react"
 import Layout from "../components/Layout/Layout"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import SEO from "../components/SEO/Seo"
 
 export default function Portfolio({data}) {
@@ -64,7 +64,7 @@ export default function Portfolio({data}) {
               <div key={project.id} className="portfolio-item padd-15" data-category={ project.frontmatter.data_category }>
                 <div className="portfolio-item-inner shadow-dark">
                     <div className="portfolio-img">
-                        <Img fluid={project.frontmatter.img_path.childImageSharp.fluid} alt={`project-${project.frontmatter.title}`} />
+                        <GatsbyImage image={project.frontmatter.img_path.childImageSharp.gatsbyImageData} alt={`project-${project.frontmatter.title}`} />
                     </div>
                     <div className="portfolio-info">
                         <h4>{ project.frontmatter.title }</h4>
@@ -110,9 +110,7 @@ query ProjectsPage {
         img_path {
           id
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED)
           }
         }
         title
