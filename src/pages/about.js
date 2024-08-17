@@ -29,8 +29,8 @@ export default function About() {
                   </h3>
                   <p>
                     Hi! My name is Rahul T. I am a Web Developer, and I'm very
-                    passionate and dedicated to my work. I am a student at
-                    College of Engineering, Trivandrum. I acquired the skills
+                    passionate and dedicated to my work. Currently I am working as an associate
+                    Consultant at Oracle Financial Service Software. I acquired the skills
                     and knowledge necessary to make your project a success, with
                     a lot of practice. I enjoy every step of the design process
                   </p>
@@ -41,22 +41,12 @@ export default function About() {
                   <div className="row">
                     <div className="info-item padd-15">
                       <p>
-                        Birthday : <span>22 Nov 2001</span>
+                        website : <span>https://rahulmanoj.in</span>
                       </p>
                     </div>
                     <div className="info-item padd-15">
                       <p>
-                        Age : <span>19</span>
-                      </p>
-                    </div>
-                    <div className="info-item padd-15">
-                      <p>
-                        website : <span>https://rahult.in</span>
-                      </p>
-                    </div>
-                    <div className="info-item padd-15">
-                      <p>
-                        email : <span>rahulmanoj@cet.ac.in</span>
+                        email : <span>rahulmanojcoder@gmail.com</span>
                       </p>
                     </div>
                     <div className="info-item padd-15">
@@ -98,6 +88,16 @@ export default function About() {
                 <div className="skills padd-15">
                   <div className="row">
                     <div className="skill-item">
+                      <h5>PLSQL</h5>
+                      <div className="progress">
+                        <div
+                          className="progress-in"
+                          style={{ width: "85%" }}
+                        ></div>
+                        <div className="skill-percent">85%</div>
+                      </div>
+                    </div>
+                    <div className="skill-item">
                       <h5>Python</h5>
                       <div className="progress">
                         <div
@@ -132,9 +132,9 @@ export default function About() {
                       <div className="progress">
                         <div
                           className="progress-in"
-                          style={{ width: "75%" }}
+                          style={{ width: "85%" }}
                         ></div>
-                        <div className="skill-percent">75%</div>
+                        <div className="skill-percent">85%</div>
                       </div>
                     </div>
                   </div>
